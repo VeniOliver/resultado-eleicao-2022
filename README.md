@@ -10,7 +10,7 @@ Os dados dos Boletins de Urnas estão disponíveies em: https://dadosabertos.tse
 
 Esse é um algorítimo de análise de dados abertos e públicos disponibilizados pelo próprio Tribunal Superior Eleitoral - TSE.
 
-Não é nosso objetivo contestar os resultados oficiais das eleições.
+Não é nosso objetivo contestar os resultados oficiais das eleições, apenas identificar eventos com pouca chances de ocorrer :).
 
 ## Contribuindo
 
@@ -23,7 +23,7 @@ Por favor, siga o `código de conduta` desse projeto.
 
 - Contabilização de resultado por estado (UF)
 - Identificação de Seções com mais de 98% de votos para um único candidato
-- Identificação de Seções com mais de 90% de eleitores com biometria não foram habilitados por meio dela
+- Identificação de Seções com mais de 90% de eleitores com biometria que não foram habilitados por meio dela
 
 
 ## Instalação
