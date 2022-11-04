@@ -23,7 +23,7 @@ Por favor, siga o `código de conduta` desse projeto.
 
 - Contabilização de resultado por estado (UF)
 - Identificação de Seções com mais de 98% de votos para um único candidato
-- Identificação de Seções com mais de 90% de eleitores dos eleitores com biometria não foram habilitados por meio dela
+- Identificação de Seções com mais de 90% de eleitores com biometria não foram habilitados por meio dela
 
 
 ## Instalação
