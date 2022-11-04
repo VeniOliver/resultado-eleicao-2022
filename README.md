@@ -10,7 +10,7 @@ Os dados dos Boletins de Urnas estão disponíveies em: https://dadosabertos.tse
 
 Esse é um algorítimo de análise de dados abertos e públicos disponibilizados pelo próprio Tribunal Superior Eleitoral - TSE.
 
-Não é nosso objetivo contestar os resultados oficiais das eleições, apenas identificar eventos com pouca chances de ocorrer :).
+Não é nosso objetivo contestar os resultados oficiais das eleições, apenas identificar eventos com poucas chances de ocorrer :).
 
 ## Contribuindo
 
