@@ -50,6 +50,6 @@ Execute os algorítimos
 
 ## Screenshots
 
-![App Screenshot](https://ibb.co/4MSbTBx)
+![App Screenshot](https://i.ibb.co/d6pN2ny/alagoas.png)
 
-![App Screenshot](https://ibb.co/vDCFkdx)
+![App Screenshot](https://i.ibb.co/M9yv71D/Captura-de-tela-de-2022-11-05-19-59-31.png)
