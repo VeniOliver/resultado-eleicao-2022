@@ -47,3 +47,9 @@ Execute os algorítimos
   python3 result.py
   python3 audit.py
 ```
+
+## Screenshots
+
+![App Screenshot](https://ibb.co/4MSbTBx)
+
+![App Screenshot](https://ibb.co/vDCFkdx)
