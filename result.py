@@ -9,20 +9,22 @@ import sys
 class Result:
 
     @staticmethod
-    def generate(uf='', random = False, round = '2'):
-        data = bweb.BU.open_file(uf, round)
+    def generate(uf='', random = False, round = '2', model=0):
+        data = bweb.BU.open_file(uf, round, model)
         if random:
             data = shuffle(data)
         sections_data = pd.DataFrame(columns=['percent', 'bozo', 'nine'])
         bozo = 0
         nine = 0
         count_section = 0
-        print('Contabilizando votos... /n')
+        count_percent = 0
+        print('Contabilizando votos...')
         print('')
-        for index, row in tqdm(data.iterrows(), total=data.shape[0]):
+        for index, row in tqdm(data.iterrows(), total=len(data)):
+            count_percent += 1
+            percent = (count_percent / len(data)) * 100
             if row['NR_URNA_EFETIVADA'] not in sections_data.index:
                 count_section += 1
-            percent = (count_section / len(data)) * 100
             sections_data.loc[row['NR_URNA_EFETIVADA'],['percent']] = [percent]
             if row['NR_PARTIDO'] == 22:
                 bozo += row['QT_VOTOS']
@@ -35,7 +37,13 @@ class Result:
                 if count_section > 1:
                     sections_data.loc[row['NR_URNA_EFETIVADA'],['nine']] = [nine_percent]
 
-        print('_________________RESULTADO_____________________')
+        print('')
+        if model == 0:
+            print('_________________RESULTADO (URNAS TODOS OS MODELOS)_____________________')
+        if model == 1:
+            print('_________________RESULTADO (URNAS MODELO 2020)_____________________')
+        if model == 2:
+            print('_________________RESULTADO (URNAS MODELO ANTERIOR A 2020)_____________________')
         print('')
         print('Total votos Bozo: ', bozo)
         print('Total votos Nine: ', nine)
@@ -50,7 +58,14 @@ input = inquirer.prompt(question)
 print('')
 print('Aguarde...')
 print('')
-chart_data = Result().generate(input['uf'])
-chart_data.plot(x='percent')
+chart_data_all = Result().generate(input['uf'])
+chart_data_current = Result().generate(input['uf'], model=1)
+chart_data_old = Result().generate(input['uf'], model=2)
+#create charts
+fig, axs = plt.subplots(3, constrained_layout=True)
+fig.suptitle('Votação: ' + input['uf'])
+chart_data_current.plot(x='percent', ax=axs[0], title='Urnas modelo 2020', grid=True)
+chart_data_old.plot(x='percent', ax=axs[1], title='Urnas modelo anterior a 2020', grid=True)
+chart_data_all.plot(x='percent', ax=axs[2], title='Todos os modelos', grid=True)
 plt.show()
 #sys.exit()

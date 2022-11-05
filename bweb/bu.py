@@ -53,7 +53,10 @@ class BU:
 
     #open csv file
     @staticmethod
-    def open_file(uf, round = '2'):
+    def open_file(uf, round = '2', model=0):
+        #model 0 (ALL)
+        #model 1 (2020) = NR_URNA >= 2000000
+        #model 2 (2009 - 2015) = NR_URNA <= 1950000
         #open csv file
         file = './bweb/csv/bweb_' + str(round) + 't_' + str(uf) + '_311020221535.csv'
         reader = pd.read_csv(file, encoding='latin1', sep = ';')
@@ -62,5 +65,10 @@ class BU:
         #filter president role
         data = data.loc[(data['CD_CARGO_PERGUNTA'] == 1) & ((data['NR_PARTIDO'] == 22) | (data['NR_PARTIDO'] == 13))]
         #data = data.loc[(data['CD_CARGO_PERGUNTA'] == 1)]
+        #filter model
+        if model == 1:
+            data = data.loc[data['NR_URNA_EFETIVADA'] >= 2000000]
+        if model == 2:
+            data = data.loc[data['NR_URNA_EFETIVADA'] <= 1950000]
         #return filtered data
         return data

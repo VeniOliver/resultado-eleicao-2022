@@ -4,7 +4,7 @@ import bweb.bu as bweb
 import inquirer
 
 class Audit:
-    unanimity_percent = 98
+    unanimity_percent = 100
     unanimity_min = 20
     biometry_percent = 90
     biometry_min = 0
